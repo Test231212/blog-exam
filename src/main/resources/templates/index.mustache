@@ -1,7 +1,9 @@
 {{> layout/header}}
 
+
 <div class="container p-5">
 
+{{#boardList}}
     <table class="table table-striped">
         <thead>
         <tr>
@@ -20,7 +22,7 @@
             <td>홍길동</td>
             <td>
                 <div class="d-flex">
-                    <form action="#">
+                    <form action="/board/delete" method="post">
                         <button class="btn btn-danger">삭제</button>
                     </form>
                     <form action="/board/1/updateForm" method="get">
@@ -36,7 +38,7 @@
             <td>홍길동</td>
             <td>
                 <div class="d-flex">
-                    <form action="#">
+                    <form action="/board/delete" method="post">
                         <button class="btn btn-danger">삭제</button>
                     </form>
                     <form action="/board/1/updateForm" method="get">
@@ -52,7 +54,7 @@
             <td>홍길동</td>
             <td>
                 <div class="d-flex">
-                    <form action="#">
+                    <form action="/board/delete" method="post">
                         <button class="btn btn-danger">삭제</button>
                     </form>
                     <form action="/board/1/updateForm" method="get">
@@ -68,10 +70,10 @@
             <td>홍길동</td>
             <td>
                 <div class="d-flex">
-                    <form action="#">
+                    <form action="/board/delete" method="post">
                         <button class="btn btn-danger">삭제</button>
                     </form>
-                    <form action="/board/1/updateForm" method="get">
+                    <form action="/board/2/updateForm" method="get">
                         <button class="btn btn-warning">수정</button>
                     </form>
                 </div>
@@ -84,7 +86,7 @@
             <td>홍길동</td>
             <td>
                 <div class="d-flex">
-                    <form action="#">
+                    <form action="/board/delete" method="post">
                         <button class="btn btn-danger">삭제</button>
                     </form>
                     <form action="/board/1/updateForm" method="get">
@@ -95,7 +97,14 @@
         </tr>
         </tbody>
     </table>
-
+{{/boardList}}
 </div>
-
+<div class="pagination">
+    <ul>
+        {{#currentPage}}
+            <li><a href="/board?page={{.}}">{{.}}</a></li>
+        {{/currentPage}}
+    </ul>
+</div>
+</div>
 {{> layout/footer}}
